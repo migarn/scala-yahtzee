@@ -1,0 +1,5 @@
+*.jar
+*.zip
+out
+lib
+Demo.scala
