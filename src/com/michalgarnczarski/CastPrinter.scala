@@ -35,7 +35,15 @@ object CastPrinter {
       line1 + "\n" + line2 + "\n" + line3 + "\n" + line4 + "\n" + line5
     }
 
+    def mergeStrings(left: String, right: String): String = {
+      val leftSplit: Array[String] = left.split("\n")
+      val rightSplit: Array[String] = right.split("\n")
 
-    printSingleDice(castResult(0))
+      val merged: Array[String] = leftSplit.zip(rightSplit).map {case (x, y) => x + y}
+      merged.mkString("\n")
+  }
+
+
+    mergeStrings(printSingleDice(2), printSingleDice(1))
   }
 }
