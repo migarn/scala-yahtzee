@@ -33,13 +33,13 @@ object CastPrinter {
       line1 + "\n" + line2 + "\n" + line3 + "\n" + line4 + "\n" + line5
     }
 
-    def printAllDice(yet: String, current: Int): String = {
+    def printAllDice(alreadyPrinted: String, currentDice: Int): String = {
 
       def mergeStrings(leftString: String, rightString: String): String =
         leftString.split("\n").zip(rightString.split("\n")).map {case (x, y) => x + y}.mkString("\n")
 
-      if (current == castResult.length) yet
-      else printAllDice(mergeStrings(yet, printSingleDice(castResult(current))), current + 1)
+      if (currentDice == castResult.length) alreadyPrinted
+      else printAllDice(mergeStrings(alreadyPrinted, printSingleDice(castResult(currentDice))), currentDice + 1)
     }
 
     printAllDice(" \n \n \n \n ",0)
