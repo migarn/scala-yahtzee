@@ -42,8 +42,12 @@ object CastPrinter {
       val merged: Array[String] = leftSplit.zip(rightSplit).map {case (x, y) => x + y}
       merged.mkString("\n")
   }
+    def createDice(yet: String, current: Int): String = {
+      if (current == castResult.length) yet
+      else createDice(mergeStrings(yet, printSingleDice(castResult(current))), current + 1)
+    }
 
 
-    mergeStrings(printSingleDice(2), printSingleDice(1))
+    createDice(" \n \n \n \n ",0)
   }
 }
