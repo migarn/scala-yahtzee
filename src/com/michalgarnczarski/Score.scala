@@ -11,4 +11,11 @@ class Score {
   def addScore(cast: List[Int], chosenFigures: Int): List[Int] =
     scores.updated(chosenFigures - 1, cast.count(_ == chosenFigures) * chosenFigures)
 
+  def calculateScore(): List[Int] = {
+    val upperSectionSum: Int = scores.filter(_ != -1).sum
+    val bonus: Int = if (upperSectionSum >= 63) 35 else 0
+    scores.updated(6, bonus)
+    scores.updated(7, upperSectionSum + bonus)
+  }
+
 }
