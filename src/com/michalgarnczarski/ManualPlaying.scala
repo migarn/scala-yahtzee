@@ -8,8 +8,8 @@ class ManualPlaying extends PlayingMethod {
 
   }
 
-  def defineAvailableFigures(score: Score): List[Int] = {
-    for {i <- List.range(0, 5)
+  def defineAvailableFigures(score: Score): Array[Int] = {
+    for {i <- Array.range(0, 5)
          if score.scores(i) == -1
     } yield i + 1
   }
